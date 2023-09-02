@@ -1,0 +1,32 @@
+<ion-content [fullscreen]="true">
+
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-button slot="start" (click)="atrasInicio()"> <ion-icon name="arrow-back-circle-outline"></ion-icon> </ion-button>
+    <ion-title>login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+  <ion-card>
+    <ion-card-content>
+      <ion-item>
+        <ion-input [(ngModel)]="email" label="Email" type="text" label-placement="floating" placeholder="Enter your name"> </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input  [(ngModel)]="contrasena" label="Password" type="password" label-placement="floating" placeholder="Enter your password">
+        </ion-input>
+      </ion-item>
+    </ion-card-content>
+
+    <ion-row>
+      <ion-col>
+        <ion-button expand="full" (click)="login()">Login</ion-button>
+
+        <ion-text class="ion-text-center" > <a href="/register" >Crear una cuenta</a> </ion-text>
+      </ion-col>
+    </ion-row>
+
+  </ion-card>
+
+</ion-content>

@@ -1,20 +1,24 @@
-<ion-header [translucent]="true">
+<ion-header collapse="condense">
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+    <ion-title>TellevoApp</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" no-bounce>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  <div class="ion-container">
+  <ion-img class="img" src="https://i.postimg.cc/6Q1hJD2x/tellevofoto.png" alt="The Wisconsin State Capitol building in Madison, WI at night"></ion-img>
   </div>
+      
+
+  <ion-content class="botonesLR">
+
+      <ion-card>
+        <ion-button expand="full" (click)="cargarLogin()">Ingresar</ion-button>
+        
+        <ion-button expand="full" (click)="cargarRegistro()">Registrarse</ion-button>
+
+      </ion-card>
+  </ion-content>
+
 </ion-content>
