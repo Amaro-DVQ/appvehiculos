@@ -1,14 +1,14 @@
-<ion-content [fullscreen]="true">
-
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-button slot="start" (click)="atrasInicio()"> <ion-icon name="arrow-back-circle-outline"></ion-icon> </ion-button>
-    <ion-title>login</ion-title>
-  </ion-toolbar>
-</ion-header>
+    <ion-toolbar>
+      <ion-button slot="start" (click)="atrasInicio()"> <ion-icon name="arrow-back-circle-outline"></ion-icon> </ion-button>
+      <ion-title>login</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+<ion-content [fullscreen]="true" class="card-papa"> 
 
 
-  <ion-card>
+  <ion-card class="card-hijo">
     <ion-card-content>
       <ion-item>
         <ion-input [(ngModel)]="email" label="Email" type="text" label-placement="floating" placeholder="Enter your name"> </ion-input>

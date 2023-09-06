@@ -1,24 +1,33 @@
-<ion-header collapse="condense">
+<ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>TellevoApp</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" no-bounce>
 
-  <div class="ion-container">
-  <ion-img class="img" src="https://i.postimg.cc/RZC8fDnD/auto-dorado.png" alt="The Wisconsin State Capitol building in Madison, WI at night"></ion-img>
-  </div>
-      
+<ion-content [fullscreen]="true" class="card-papa">
 
-  <ion-content class="botonesLR">
+  
 
-      <ion-card>
-        <ion-button expand="full" (click)="cargarLogin()">Ingresar</ion-button>
-        
-        <ion-button expand="full" (click)="cargarRegistro()">Registrarse</ion-button>
 
-      </ion-card>
-  </ion-content>
+
+  <ion-card class="card-hijo">
+
+    <div class="ion-container">
+      <ion-img class="img" src="https://i.postimg.cc/RZC8fDnD/auto-dorado.png" alt="The Wisconsin State Capitol building in Madison, WI at night"></ion-img>
+    </div>
+
+
+    <div class="botones">
+      <ion-button (click)="cargarLogin()">Ingresar</ion-button>
+
+      <ion-button (click)="cargarRegistro()">Registrarse</ion-button>
+    </div>
+
+
+
+  </ion-card>
+
+
 
 </ion-content>

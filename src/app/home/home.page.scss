@@ -6,8 +6,53 @@
 
 ion-content {
   --background: #012C56;
-  display: block;
-  align-content: center;
+}
+
+
+.card-papa {
+  width: 100%;
+  height: 100%;
+  display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+}
+
+.card-papa .card-hijo {
+  max-width: 500px;
+  min-width: 300px;
+  margin: auto;
+  margin-top: 20px;
+  padding-top: 220px;
+  padding-bottom: 220px;
+  padding-left: 150px;
+  padding-right: 150px;
+  border-radius: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.card-papa .card-hijo .botones {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.card-papa .card-hijo .botones ion-button {
+  width: 100%;
+  margin-bottom: 10px;
+  --background: #FBBB34;
+  --color: #012C56;
+  font-weight: bold;
+
+}
+
+.card-papa .card-hijo .botones ion-button:hover {
+  --background: #FBBB34;
+  --color: white;
+  font-weight: bold;
 }
