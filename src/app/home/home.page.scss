@@ -5,7 +5,9 @@
 }
 
 ion-content {
-  --background: #012C56;
+  --background: #01162c;
+  --overflow: hidden;
+  background: #01162c;
 }
 
 
@@ -19,6 +21,7 @@ ion-content {
 }
 
 .card-papa .card-hijo {
+  --background: #01162c;
   max-width: 500px;
   min-width: 300px;
   margin: auto;
@@ -46,13 +49,17 @@ ion-content {
   width: 100%;
   margin-bottom: 10px;
   --background: #FBBB34;
-  --color: #012C56;
+  --color: white;
   font-weight: bold;
 
 }
 
-.card-papa .card-hijo .botones ion-button:hover {
+.card-papa .card-hijo .botones ion-button:hover{
   --background: #FBBB34;
   --color: white;
-  font-weight: bold;
+}
+
+.img {
+  width: 200px;
+  height: auto;
 }

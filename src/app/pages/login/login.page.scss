@@ -1,3 +1,18 @@
+ion-content {
+    --overflow: hidden;
+    
+}
+.back-buttom{
+    --background: #FBBB34;
+    --color: white;
+    font-weight: bold;
+}
+
+ion-header{
+    background: #01162c;
+    --background: #01162c;
+}
+
 ion-row{
     text-align: center;
 }
@@ -6,11 +21,73 @@ ion-row ion-button{
     margin-bottom: 20px;
 }
 
-.card-papa {
-    width: 100%;
-    height: 100%;
+.card-papa{
+    --background: #01162c;
+}
+
+.card-papa .card-hijo {
+    --background: #01162c;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 500px;
+    min-width: 350px;
+    margin: auto;
+    margin-top: 20px;
+    padding-top: 250px;
+    padding-bottom: 250px;
+    padding-left: 10px;
+    padding-right: 10px;
+
+}
+
+
+.input1 , .input2 {
+    border: 1px solid white;
+    border-radius: 5px;
+}
+
+.card-papa .card-hijo ion-button{
+    --background: #FBBB34;
+    --color: white;
+    font-weight: bold;
+}
+
+.input1{
+    margin-bottom: 5px;
+    
+}
+
+.input2 {
+    margin-top: 5px;
+}
+
+.ion-container{
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
+}
+.img{
+    width: 200px;
+    height: auto;
+
+}
+
+.botones ion-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.links{
+    color: #FBBB34;
+    font-weight: bold;
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    cursor: pointer;
+}
+
+.links:hover{
+    color: white;
+
 }

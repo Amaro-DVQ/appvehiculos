@@ -22,7 +22,8 @@ const routes: Routes = [
   {
     path: 'menu-principal',
     loadChildren: () => import('./pages/menu-principal/menu-principal.module').then( m => m.MenuPrincipalPageModule)
-  },  {
+  },
+  {
     path: 'solicitar-auto',
     loadChildren: () => import('./pages/solicitar-auto/solicitar-auto.module').then( m => m.SolicitarAutoPageModule)
   },
@@ -30,7 +31,10 @@ const routes: Routes = [
     path: 'ofrecer-auto',
     loadChildren: () => import('./pages/ofrecer-auto/ofrecer-auto.module').then( m => m.OfrecerAutoPageModule)
   },
-
+  {
+    path: 'recuperar-contra',
+    loadChildren: () => import('./pages/recuperar-contra/recuperar-contra.module').then( m => m.RecuperarContraPageModule)
+  },
 ];
 
 @NgModule({
