@@ -1,0 +1,28 @@
+ion-content{
+    --background: #01162c;
+}
+
+.textos{
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin: 1rem;
+}
+
+.ion-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.botones{
+    margin: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    --background: #FBBB34;
+    --color: white;
+    font-weight: bold;
+
+}
+

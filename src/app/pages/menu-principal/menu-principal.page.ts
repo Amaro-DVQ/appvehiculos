@@ -16,5 +16,13 @@ export class MenuPrincipalPage implements OnInit {
   atrasInicio() {
     this.router.navigateByUrl('/home')
   }
+
+  ofrecerAuto() {
+    this.router.navigateByUrl('/ofrecer-auto')
+  }
+
+  solicitarAuto() {
+    this.router.navigateByUrl('/solicitar-auto')
+  }
 }
 
