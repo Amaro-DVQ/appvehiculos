@@ -1,30 +1,42 @@
 <ion-header [translucent]="true">
     <ion-toolbar>
-      <ion-button slot="start" (click)="atrasInicio()"> <ion-icon name="arrow-back-circle-outline"></ion-icon> </ion-button>
-      <ion-title>login</ion-title>
+      <ion-button class="back-buttom" slot="start" (click)="atrasInicio()"> <ion-icon name="arrow-back-circle-outline"></ion-icon> </ion-button>
+      <ion-title>Login</ion-title>
     </ion-toolbar>
-  </ion-header>
+</ion-header>
 
 <ion-content [fullscreen]="true" class="card-papa"> 
 
 
   <ion-card class="card-hijo">
     <ion-card-content>
-      <ion-item>
-        <ion-input [(ngModel)]="email" label="Email" type="text" label-placement="floating" placeholder="Enter your name"> </ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-input  [(ngModel)]="contrasena" label="Password" type="password" label-placement="floating" placeholder="Enter your password">
-        </ion-input>
-      </ion-item>
+
+        <div class="ion-container">
+          <ion-img class="img" src="https://i.postimg.cc/RZC8fDnD/auto-dorado.png" alt="The Wisconsin State Capitol building in Madison, WI at night"></ion-img>
+        </div>
+
+        <ion-item class="input1">
+          <ion-input  [(ngModel)]="email" label="Email" type="text" label-placement="floating" placeholder="Enter your name"> </ion-input>
+        </ion-item>
+        
+        <ion-item  class="input2">
+          <ion-input  [(ngModel)]="contrasena" label="Password" type="password" label-placement="floating" placeholder="Enter your password"> </ion-input >
+        </ion-item>
     </ion-card-content>
 
-    <ion-row>
+    <ion-row class="botones">
       <ion-col>
+
         <ion-button expand="full" (click)="login()">Login</ion-button>
 
-        <ion-text class="ion-text-center" > <a href="/register" >Crear una cuenta</a> </ion-text>
+        <ion-text> <a href="/register" >Crear una cuenta</a> </ion-text>
+
+        <ion-text style="margin-top: 10px;"> <a href="">Recuperar contraseña</a> </ion-text>
+
+
       </ion-col>
+
+      
     </ion-row>
 
   </ion-card>
