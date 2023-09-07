@@ -16,10 +16,7 @@ export class LoginPage implements OnInit {
   ngOnInit() {
   }
 
-  atrasInicio(){
-    this.router.navigateByUrl('/home')
-  }
- 
+  
 
   login() {
     if (this.email ==""){
@@ -37,5 +34,13 @@ export class LoginPage implements OnInit {
       this.helperService.showAlert("Usuario o contraseña incorrectos", "Error")
     }
 
+  }
+
+  recuperarContra(){
+    this.router.navigateByUrl('/recuperar-contra')
+  }
+
+  registrar(){
+    this.router.navigateByUrl('/register')
   }
 }

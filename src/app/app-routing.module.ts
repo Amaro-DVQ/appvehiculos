@@ -23,6 +23,10 @@ const routes: Routes = [
     path: 'menu-principal',
     loadChildren: () => import('./pages/menu-principal/menu-principal.module').then( m => m.MenuPrincipalPageModule)
   },
+  {
+    path: 'recuperar-contra',
+    loadChildren: () => import('./pages/recuperar-contra/recuperar-contra.module').then( m => m.RecuperarContraPageModule)
+  },
 ];
 
 @NgModule({

@@ -9,8 +9,8 @@ ion-content {
 }
 
 ion-header{
-    background: #012C56;
-    --background: #012C56;
+    background: #01162c;
+    --background: #01162c;
 }
 
 ion-row{
@@ -44,7 +44,6 @@ ion-row ion-button{
 
 
 .input1 , .input2 {
-
     border: 1px solid white;
     border-radius: 5px;
 }
@@ -78,4 +77,17 @@ ion-row ion-button{
 .botones ion-col {
     display: flex;
     flex-direction: column;
+}
+
+.links{
+    color: #FBBB34;
+    font-weight: bold;
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    cursor: pointer;
+}
+
+.links:hover{
+    color: white;
+
 }

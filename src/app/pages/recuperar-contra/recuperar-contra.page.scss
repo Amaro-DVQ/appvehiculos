@@ -1,0 +1,62 @@
+
+ion-content {
+    --overflow: hidden;
+
+}
+
+ion-header {
+    background: #01162c;
+    --background: #01162c;
+}
+
+.ion-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img {
+    width: 200px;
+    height: auto; 
+}
+
+
+.card-papa {
+    --background: #01162c;
+}
+
+
+.card-papa .card-hijo {
+    --background: #01162c;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 500px;
+    min-width: 350px;
+    margin: auto;
+    margin-top: 20px;
+    padding-top: 250px;
+    padding-bottom: 250px;
+    padding-left: 10px;
+    padding-right: 10px;
+
+}
+
+.input1{
+    border: 1px solid white;
+    border-radius: 5px;
+}
+
+.boton{
+    margin-top: 5px;
+    --background: #FBBB34;
+    --color: white;
+    font-weight: bold;
+}
+
+.back-buttom{
+    --background: #FBBB34;
+    --color: white;
+    font-weight: bold;
+}

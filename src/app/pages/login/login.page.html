@@ -1,6 +1,9 @@
 <ion-header [translucent]="true">
     <ion-toolbar>
-      <ion-button class="back-buttom" slot="start" (click)="atrasInicio()"> <ion-icon name="arrow-back-circle-outline"></ion-icon> </ion-button>
+
+      <ion-buttons class="back-buttom" slot="start">
+        <ion-back-button default-href="/"></ion-back-button>
+      </ion-buttons>
       <ion-title>Login</ion-title>
     </ion-toolbar>
 </ion-header>
@@ -29,9 +32,10 @@
 
         <ion-button expand="full" (click)="login()">Login</ion-button>
 
-        <ion-text> <a href="/register" >Crear una cuenta</a> </ion-text>
+        <ion-text style="margin-bottom: 10px" class="links" (click)="registrar()"> Crear una cuenta</ion-text>
 
-        <ion-text style="margin-top: 10px;"> <a href="">Recuperar contraseña</a> </ion-text>
+        <ion-text class="links" (click)="recuperarContra()"> Recuperar contraseña</ion-text>
+        
 
 
       </ion-col>
