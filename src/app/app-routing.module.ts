@@ -34,7 +34,11 @@ const routes: Routes = [
   {
     path: 'recuperar-contra',
     loadChildren: () => import('./pages/recuperar-contra/recuperar-contra.module').then( m => m.RecuperarContraPageModule)
+  },  {
+    path: 'confirmar-viaje',
+    loadChildren: () => import('./pages/confirmar-viaje/confirmar-viaje.module').then( m => m.ConfirmarViajePageModule)
   },
+
 ];
 
 @NgModule({

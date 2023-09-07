@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button text="Atrás" default-href="/"></ion-back-button>
     </ion-buttons>
-    <ion-title>Solicitar Auto</ion-title>
+    <ion-title>Confirmar Viaje</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -11,16 +11,16 @@
 <ion-content [fullscreen]="true">
     <ion-list class="textos">
         <ion-item>
-          <ion-input label="Origen:" type="text" label-placement="floating" placeholder="Metro Macúl"></ion-input>
+          <ion-input label="Monto Final:" type="text" label-placement="floating" placeholder="Metro Macúl"></ion-input>
         </ion-item>
     
-        <ion-item>
+        <!-- <ion-item>
           <ion-input label="Destino:" type="text" label-placement="floating" placeholder="Metro San Joaquín"></ion-input>
         </ion-item>
   
         <ion-item>
           <ion-input label="Ingresa el costo del viaje:" type="number" label-placement="floating" placeholder="$1.000"></ion-input>
-        </ion-item>
+        </ion-item> -->
     </ion-list>
 
     <ion-button class="botones" expand="block" fill="outline" routerLink="/confirmar-viaje">Solicitar Auto</ion-button>
