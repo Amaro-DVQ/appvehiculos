@@ -10,9 +10,7 @@
 
 <ion-content [fullscreen]="true">
   <div style="display: flex; flex-direction: column; height: 100%; padding: 20px;">
-    <ion-button expand="full" size="large" color="translucent" style="flex: 1; border: solid; border-radius: 30px; background: white; color:black; font-size: 35px; font-weight: bold;">Solicitar Auto</ion-button>
-    <ion-button expand="full" size="large" color="translucent" style="flex: 1; border: solid; border-radius: 30px; font-size: 35px; font-weight: bold; ">Ofrecer Auto</ion-button>
+    <ion-button (click)="solicitarAuto()" expand="full" size="large" color="translucent" style="flex: 1; border: solid; border-radius: 30px; background: white; color:black; font-size: 35px; font-weight: bold;">Solicitar Auto</ion-button>
+    <ion-button (click)="ofrecerAuto()" expand="full" size="large" color="translucent" style="flex: 1; border: solid; border-radius: 30px; font-size: 35px; font-weight: bold; ">Ofrecer Auto</ion-button>
   </div>
 </ion-content>
-
-<!-- xupalo amaro -->

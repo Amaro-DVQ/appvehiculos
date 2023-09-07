@@ -22,7 +22,15 @@ const routes: Routes = [
   {
     path: 'menu-principal',
     loadChildren: () => import('./pages/menu-principal/menu-principal.module').then( m => m.MenuPrincipalPageModule)
+  },  {
+    path: 'solicitar-auto',
+    loadChildren: () => import('./pages/solicitar-auto/solicitar-auto.module').then( m => m.SolicitarAutoPageModule)
   },
+  {
+    path: 'ofrecer-auto',
+    loadChildren: () => import('./pages/ofrecer-auto/ofrecer-auto.module').then( m => m.OfrecerAutoPageModule)
+  },
+
 ];
 
 @NgModule({
