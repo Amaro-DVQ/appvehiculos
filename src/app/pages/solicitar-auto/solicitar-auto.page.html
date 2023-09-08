@@ -8,8 +8,8 @@
 </ion-header>
 
 
-<ion-content [fullscreen]="true">
-    <ion-list class="textos">
+<ion-content [fullscreen]="true" class="card-papa">
+    <ion-card class="card-hijo">
         <ion-item>
           <ion-input label="Origen:" type="text" label-placement="floating" placeholder="Metro Macúl"></ion-input>
         </ion-item>
@@ -21,8 +21,12 @@
         <ion-item>
           <ion-input label="Ingresa el costo del viaje:" type="number" label-placement="floating" placeholder="$1.000"></ion-input>
         </ion-item>
-    </ion-list>
+    
 
     <ion-button class="botones" expand="block" fill="outline" routerLink="/confirmar-viaje">Solicitar Auto</ion-button>
+    <ion-button class="botones" expand="block" fill="outline" routerLink="/confirmar-viaje">Solicitar Auto</ion-button>
+
+    </ion-card>
     <!-- <ion-button class="botones" expand="block" fill="outline" routerLink="#">Cancelar</ion-button> -->
+    
 </ion-content>

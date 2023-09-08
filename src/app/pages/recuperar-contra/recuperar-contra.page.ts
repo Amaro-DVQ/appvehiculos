@@ -24,7 +24,7 @@ export class RecuperarContraPage implements OnInit {
     } else if (!emailvalidar.test(this.email)) {
       this.helperService.showAlert('Por favor, ingrese un correo electrónico válido.', 'Error');
     } else {
-      this.helperService.showAlert('Por favor, revise su correo.', 'Recuperar Contraseña');
+      this.helperService.showAlert('Por favor, revise su correo.', 'Enviado!');
     }
   }
 

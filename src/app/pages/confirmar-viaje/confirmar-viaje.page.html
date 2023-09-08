@@ -8,21 +8,48 @@
 </ion-header>
 
 
-<ion-content [fullscreen]="true">
-    <ion-list class="textos">
+<ion-content [fullscreen]="true" class="card-papa">
+
+
+  <ion-card class="card-hijo">
+    <div class="ion-container">
+      <ion-img class="img" src="https://i.postimg.cc/RZC8fDnD/auto-dorado.png"
+        alt="The Wisconsin State Capitol building in Madison, WI at night"></ion-img>
+    </div>
+
+
+
+          <ion-input style="color: white;" readonly  label="Origen: San joaquin" type="text" ></ion-input>
+
+          <ion-input style="color: white;" readonly  label="Destino: Metro Macul" type="text" ></ion-input>
+
+          <ion-input style="color: white;" readonly  label="Monto Final: 1000" type="text" ></ion-input>
+
+
         <ion-item>
-          <ion-input label="Monto Final:" type="text" label-placement="floating" placeholder="Metro Macúl"></ion-input>
+          <form expand="block" action="#" >
+            <label for="lang" style="margin-right: 20px;">Metodo de pago</label>
+            <select name="metodos-pagos" id="lang">
+              <option value="debito">Tarjeta de debito</option>
+              <option value="credito">Tarjeta de credito</option>
+              <option value="paypal">Paypal</option>
+              <option value="efectivo">Efectivo</option>
+            </select>
+          </form>
         </ion-item>
-    
-        <!-- <ion-item>
-          <ion-input label="Destino:" type="text" label-placement="floating" placeholder="Metro San Joaquín"></ion-input>
-        </ion-item>
-  
         <ion-item>
-          <ion-input label="Ingresa el costo del viaje:" type="number" label-placement="floating" placeholder="$1.000"></ion-input>
-        </ion-item> -->
-    </ion-list>
+          <ion-input  label="Numero de tarjeta" type="text" label-placement="floating"
+            placeholder="Numero de tarjeta"> </ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input label="Fecha" type="text" label-placement="floating" placeholder="Ingrese los datos"> </ion-input>
+          <ion-input label="CVV" type="text" label-placement="floating" placeholder="CVV"> </ion-input>
+        </ion-item>
+
+
+
 
     <ion-button class="botones" expand="block" fill="outline" routerLink="/confirmar-viaje">Solicitar Auto</ion-button>
     <!-- <ion-button class="botones" expand="block" fill="outline" routerLink="#">Cancelar</ion-button> -->
+    </ion-card>
 </ion-content>

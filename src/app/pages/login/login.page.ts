@@ -28,7 +28,7 @@ export class LoginPage implements OnInit {
       return;
     }
 
-    if (this.email == "admin" && this.contrasena == "123") {
+    if (this.email == "pgy4121-003d" && this.contrasena == "pgy4121-003d") {
       this.router.navigateByUrl('/menu-principal')
     }else{
       this.helperService.showAlert("Usuario o contraseña incorrectos", "Error")

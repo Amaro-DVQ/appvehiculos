@@ -7,8 +7,8 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-    <ion-list class="textos">
+<ion-content [fullscreen]="true" class="card-papa">
+    <ion-card class="card-hijo">
       <ion-item>
         <ion-input label="Nombre del conductor:" type="text" label-placement="floating" placeholder="Ingresa tu nombre"></ion-input>
       </ion-item>
@@ -24,7 +24,9 @@
       <ion-item>
         <ion-input label="Patente del Vehículo:" type="text" label-placement="floating" placeholder="LJ-Z0-63"></ion-input>
       </ion-item>
-    </ion-list>
+
 
     <ion-button class="botones" expand="block" fill="outline" routerLink="#">Ofrecer Viaje</ion-button>
-</ion-content>
+
+    </ion-card>
+  </ion-content>

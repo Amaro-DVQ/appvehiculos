@@ -7,30 +7,36 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-list class="textos">
-    <ion-item>
-      <ion-input label="Nombre" labelPlacement="floating" fill="outline" placeholder="Ingrese su nombre"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-input label="Apellido" labelPlacement="floating" fill="outline"
-        placeholder="Ingrese su apellido"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-input label="Correo" labelPlacement="floating" fill="outline" placeholder="Ingrese su correo"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-input [(ngModel)]="pass" label="Contraseña" labelPlacement="floating" fill="outline"
-        placeholder="Ingrese su contraseña"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-input [(ngModel)]="confirmarPass" label="Confirmar Contraseña" labelPlacement="floating" fill="outline"
-        placeholder="Confirme su contraseña"></ion-input>
-    </ion-item>
-  </ion-list>
+
+<ion-content [fullscreen]="true" class="card-papa">
+
+  <ion-card class="card-hijo">
+     
+        <ion-item>
+          <ion-input label="Nombre" labelPlacement="floating" fill="outline" placeholder="Ingrese su nombre"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input label="Apellido" labelPlacement="floating" fill="outline"
+            placeholder="Ingrese su apellido"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input label="Correo" labelPlacement="floating" fill="outline" placeholder="Ingrese su correo"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input [(ngModel)]="pass" label="Contraseña" labelPlacement="floating" fill="outline"
+            placeholder="Ingrese su contraseña"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input [(ngModel)]="confirmarPass" label="Confirmar Contraseña" labelPlacement="floating" fill="outline"
+            placeholder="Confirme su contraseña"></ion-input>
+        </ion-item>
 
 
-  <br>
-  <ion-button class="botones" expand="block" (click)="register()">Register</ion-button>
+      <ion-button class="botones" expand="block" (click)="register()">Register</ion-button>
+  </ion-card>
+
+
+
+  
 
 </ion-content>
