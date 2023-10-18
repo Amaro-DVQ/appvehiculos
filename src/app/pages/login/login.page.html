@@ -8,7 +8,7 @@
     </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" class="card-papa"> 
+<ion-content [fullscreen]="true" class="card-papa">
 <!-- xd -->
 
   <ion-card class="card-hijo">
@@ -19,11 +19,11 @@
         </div>
 
         <ion-item class="input1">
-          <ion-input  [(ngModel)]="email" label="Email" type="text" label-placement="floating" placeholder="Enter your name"> </ion-input>
+          <ion-input  [(ngModel)]="this.credenciales.email" label="Email" type="text" label-placement="floating" placeholder="Enter your name"> </ion-input>
         </ion-item>
-        
+
         <ion-item  class="input2">
-          <ion-input  [(ngModel)]="contrasena" label="Password" type="password" label-placement="floating" placeholder="Enter your password"> </ion-input >
+          <ion-input  [(ngModel)]="this.credenciales.password" label="Password" type="password" label-placement="floating" placeholder="Enter your password"> </ion-input >
         </ion-item>
     </ion-card-content>
 
@@ -35,12 +35,12 @@
         <ion-text style="margin-bottom: 10px" class="links" (click)="registrar()"> Crear una cuenta</ion-text>
 
         <ion-text class="links" (click)="recuperarContra()"> Recuperar contraseña</ion-text>
-        
+
 
 
       </ion-col>
 
-      
+
     </ion-row>
 
   </ion-card>

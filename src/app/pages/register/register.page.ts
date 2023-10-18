@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
+import { FirebaseApp } from 'firebase/app';
 
 @Component({
   selector: 'app-register',
@@ -41,12 +42,7 @@ export class RegisterPage implements OnInit {
       return;
     }
 
-    this.userService.register({email:this.email, password:this.pass}).then((res)=>{
-      console.log(res)
-      this.router.navigateByUrl('/home')
-    }).catch((err)=>{
-      console.log(err)
-    })
+
   }
 
   atrasInicio() {
