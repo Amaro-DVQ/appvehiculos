@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AnimationController ,MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-menu-principal',
@@ -8,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class MenuPrincipalPage implements OnInit {
 
-  constructor(private router:Router) { }
+  constructor(private router:Router, private menuCtrl:MenuController, private animationCtrl:AnimationController) { }
 
   ngOnInit() {
   }
@@ -24,5 +25,11 @@ export class MenuPrincipalPage implements OnInit {
   solicitarAuto() {
     this.router.navigateByUrl('/solicitar-auto')
   }
+
+  cerrarMenu(){
+    this.menuCtrl.close();
+  }
+
+
 }
 

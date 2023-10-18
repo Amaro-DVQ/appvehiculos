@@ -26,14 +26,17 @@ export class LoginPage implements OnInit {
   async login() {
 
     console.log("Credenciales -> " + this.credenciales.email + " " + this.credenciales.password);
-    const res = await this.auth.login(this.credenciales.email, this.credenciales.password);
+    const res = await this.auth.login(this.credenciales.email, this.credenciales.password).catch(err => {
+      //this.helperService.showAlert(err.message, "Error");
+    });
+
     if (res) {
       console.log("Login exitoso");
-
+      this.router.navigateByUrl('/menu-principal')
     }
 
 
-    /* if (this.credenciales.email ==""){
+    if (this.credenciales.email ==""){
       this.helperService.showAlert("El email es obligatorio", "Error")
       return;
     }
@@ -42,12 +45,10 @@ export class LoginPage implements OnInit {
       return;
     }
 
-    if (this.credenciales.email == "pgy4121-003d" && this.credenciales.password == "pgy4121-003d") {
-      this.router.navigateByUrl('/menu-principal')
-    }else{
-      this.helperService.showAlert("Usuario o contraseña incorrectos", "Error")
-    } */
+  }
 
+  logout(){
+    this.auth.signOut();
   }
 
   recuperarContra(){

@@ -13,4 +13,17 @@ export class UserService {
   login(email: string, password:string ) {
     return this.authFirebase.signInWithEmailAndPassword(email, password);
   }
+
+  register(email: string, password:string ) {
+    return this.authFirebase.createUserWithEmailAndPassword(email, password);
+  }
+
+  logout() {
+    return this.authFirebase.signOut();
+  }
+
+  resetPassword(email: string) {
+    return this.authFirebase.sendPasswordResetEmail(email);
+  }
+
 }
