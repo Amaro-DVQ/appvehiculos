@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { HelperService } from 'src/app/services/helper.service';
 
 @Component({
   selector: 'app-ofrecer-auto',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OfrecerAutoPage implements OnInit {
 
-  constructor() { }
+  parametronumeroDos: number | undefined;
+  
+  constructor(private activatedRoute: ActivatedRoute,
+    private helper: HelperService) { }
 
   ngOnInit() {
+    this.parametronumeroDos = this.activatedRoute.snapshot.params['num'];
+    console.log("parametro: ", this.parametronumeroDos);
   }
 
 }

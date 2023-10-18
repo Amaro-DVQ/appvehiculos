@@ -24,17 +24,18 @@ const routes: Routes = [
     loadChildren: () => import('./pages/menu-principal/menu-principal.module').then( m => m.MenuPrincipalPageModule)
   },
   {
-    path: 'solicitar-auto',
+    path: ':num/solicitar-auto',
     loadChildren: () => import('./pages/solicitar-auto/solicitar-auto.module').then( m => m.SolicitarAutoPageModule)
   },
   {
-    path: 'ofrecer-auto',
+    path: ':num/ofrecer-auto',
     loadChildren: () => import('./pages/ofrecer-auto/ofrecer-auto.module').then( m => m.OfrecerAutoPageModule)
   },
   {
     path: 'recuperar-contra',
     loadChildren: () => import('./pages/recuperar-contra/recuperar-contra.module').then( m => m.RecuperarContraPageModule)
-  },  {
+  },
+  {
     path: 'confirmar-viaje',
     loadChildren: () => import('./pages/confirmar-viaje/confirmar-viaje.module').then( m => m.ConfirmarViajePageModule)
   },
