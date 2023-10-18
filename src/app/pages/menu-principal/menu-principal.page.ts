@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AnimationController ,MenuController } from '@ionic/angular';
 import { Menu } from 'src/app/models/menu';
 
 @Component({
@@ -11,7 +12,7 @@ export class MenuPrincipalPage implements OnInit {
   menuArray: Menu[] = [];
   loading: boolean = false;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private menuCtrl:MenuController, private animationCtrl:AnimationController) { }
 
   ngOnInit() {
     this.cargarMenu();
@@ -69,4 +70,10 @@ export class MenuPrincipalPage implements OnInit {
       };
     }
   }
+
+  cerrarMenu(){
+    this.menuCtrl.close();
+  }
+
+
 }
