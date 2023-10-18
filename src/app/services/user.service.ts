@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Auth, createUserWithEmailAndPassword } from '@angular/fire/auth';
+import { Auth } from '@angular/fire/auth';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 
 
 @Injectable({
@@ -7,9 +8,9 @@ import { Auth, createUserWithEmailAndPassword } from '@angular/fire/auth';
 })
 export class UserService {
 
-  constructor(private auth: Auth) { }
+  constructor(private authFirebase: AngularFireAuth) { }
 
-  register({ email, password }: any) {
-    return createUserWithEmailAndPassword(this.auth, email, password);
+  login(email: string, password:string ) {
+    return this.authFirebase.signInWithEmailAndPassword(email, password);
   }
 }
