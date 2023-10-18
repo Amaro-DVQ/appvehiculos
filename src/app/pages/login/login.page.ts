@@ -48,7 +48,7 @@ export class LoginPage implements OnInit {
   }
 
   logout(){
-    this.auth.signOut();
+    this.auth.logout();
   }
 
   recuperarContra(){
