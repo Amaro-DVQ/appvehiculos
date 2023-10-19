@@ -9,6 +9,8 @@ import { RegisterPageRoutingModule } from './register-routing.module';
 import { UserService } from 'src/app/services/user.service';
 import { RegisterPage } from './register.page';
 import { Auth } from '@angular/fire/auth';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+
 
 @NgModule({
   imports: [

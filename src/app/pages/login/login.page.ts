@@ -27,7 +27,7 @@ export class LoginPage implements OnInit {
 
     console.log("Credenciales -> " + this.credenciales.email + " " + this.credenciales.password);
     const res = await this.auth.login(this.credenciales.email, this.credenciales.password).catch(err => {
-      //this.helperService.showAlert(err.message, "Error");
+      this.helperService.showAlert(err.message, "Error");
     });
 
     if (res) {

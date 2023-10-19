@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AnimationController ,MenuController } from '@ionic/angular';
 import { Menu } from 'src/app/models/menu';
+import { HelperService } from 'src/app/services/helper.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-menu-principal',
@@ -12,7 +14,11 @@ export class MenuPrincipalPage implements OnInit {
   menuArray: Menu[] = [];
   loading: boolean = false;
 
-  constructor(private router: Router, private menuCtrl:MenuController, private animationCtrl:AnimationController) { }
+  constructor(private router: Router, private menuCtrl:MenuController,
+    private animationCtrl:AnimationController,
+    private auth:UserService,
+    private helper: HelperService
+    ) { }
 
   ngOnInit() {
     this.cargarMenu();
@@ -73,6 +79,12 @@ export class MenuPrincipalPage implements OnInit {
 
   cerrarMenu(){
     this.menuCtrl.close();
+  }
+
+  logOut(){
+    this.auth.logout();
+    this.helper.showAlert("Sesión cerrada","Cerrar Sesión");
+    this.router.navigateByUrl("/home");
   }
 
 
