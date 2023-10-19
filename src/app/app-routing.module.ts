@@ -1,5 +1,10 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AngularFireAuthGuard, redirectUnauthorizedTo } from '@angular/fire/compat/auth-guard'
+
+
+const redireccionarlogin = () => redirectUnauthorizedTo(['/login']);
+
 
 const routes: Routes = [
   {
@@ -21,14 +26,17 @@ const routes: Routes = [
   },
   {
     path: 'menu-principal',
+    canActivate: [AngularFireAuthGuard], data:{authGuardPipe:redireccionarlogin},
     loadChildren: () => import('./pages/menu-principal/menu-principal.module').then( m => m.MenuPrincipalPageModule)
   },
   {
     path: ':num/solicitar-auto',
+    canActivate: [AngularFireAuthGuard], data:{authGuardPipe:redireccionarlogin},
     loadChildren: () => import('./pages/solicitar-auto/solicitar-auto.module').then( m => m.SolicitarAutoPageModule)
   },
   {
     path: ':num/ofrecer-auto',
+    canActivate: [AngularFireAuthGuard], data:{authGuardPipe:redireccionarlogin},
     loadChildren: () => import('./pages/ofrecer-auto/ofrecer-auto.module').then( m => m.OfrecerAutoPageModule)
   },
   {
@@ -37,8 +45,10 @@ const routes: Routes = [
   },
   {
     path: 'confirmar-viaje',
+    canActivate: [AngularFireAuthGuard], data:{authGuardPipe:redireccionarlogin},
     loadChildren: () => import('./pages/confirmar-viaje/confirmar-viaje.module').then( m => m.ConfirmarViajePageModule)
-  },  {
+  },
+  {
     path: 'registro',
     loadChildren: () => import('./pages/registro/registro.module').then( m => m.RegistroPageModule)
   },

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
 import { HelperService } from 'src/app/services/helper.service';
+import { StorageService } from 'src/app/services/storage.service';
 import { UserService } from 'src/app/services/user.service';
 @Component({
   selector: 'app-login',
@@ -16,7 +18,11 @@ export class LoginPage implements OnInit {
 
 
 
-  constructor(private router:Router, private helperService:HelperService, private auth:UserService) { }
+  constructor(private router:Router,
+              private helperService:HelperService,
+              private userService:UserService,
+              private storage:StorageService,
+              private auth:AngularFireAuth) { }
 
   ngOnInit() {
   }
@@ -25,8 +31,21 @@ export class LoginPage implements OnInit {
 
   async login() {
 
+    const loader = await this.helperService.showLoading("Cargando");
+
+    if (this.credenciales.email ==""){
+      await loader.dismiss();
+      this.helperService.showAlert("El email es obligatorio", "Error")
+      return;
+    }
+    if (this.credenciales.password ==""){
+      await loader.dismiss();
+      this.helperService.showAlert("La contraseña es obligatoria", "Error")
+      return;
+    }
+
     console.log("Credenciales -> " + this.credenciales.email + " " + this.credenciales.password);
-    const res = await this.auth.login(this.credenciales.email, this.credenciales.password).catch(err => {
+    const res = await this.userService.login(this.credenciales.email, this.credenciales.password).catch(err => {
       this.helperService.showAlert(err.message, "Error");
     });
 
@@ -35,20 +54,20 @@ export class LoginPage implements OnInit {
       this.router.navigateByUrl('/menu-principal')
     }
 
-
-    if (this.credenciales.email ==""){
-      this.helperService.showAlert("El email es obligatorio", "Error")
-      return;
+    try {
+      this.storage.userCorreo = this.credenciales.email;
+      const req = await this.auth.signInWithEmailAndPassword(this.credenciales.email,this.credenciales.password);
+      console.log("TOKEN",await req.user?.getIdToken());
+      await this.router.navigateByUrl('menu-principal');
+    } catch (error) {
+      await loader.dismiss();
     }
-    if (this.credenciales.password ==""){
-      this.helperService.showAlert("La contraseña es obligatoria", "Error")
-      return;
-    }
 
+    await loader.dismiss();
   }
 
   logout(){
-    this.auth.logout();
+    this.userService.logout();
   }
 
   recuperarContra(){
@@ -58,4 +77,6 @@ export class LoginPage implements OnInit {
   registrar(){
     this.router.navigateByUrl('/registro')
   }
+
+
 }
