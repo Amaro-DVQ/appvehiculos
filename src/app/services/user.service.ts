@@ -27,4 +27,8 @@ export class UserService {
     return this.authFirebase.sendPasswordResetEmail(email);
   }
 
+  stateUser() {
+    return this.authFirebase.authState;
+  }
+
 }

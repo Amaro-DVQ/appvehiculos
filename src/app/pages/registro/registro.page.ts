@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { UserI } from 'src/app/models/models';
+import { HelperService } from 'src/app/services/helper.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -17,17 +19,28 @@ export class RegistroPage implements OnInit {
     confirmarPass: ""
   }
 
-  constructor(private auth:UserService) { }
+  constructor(private auth:UserService,
+            private helperService: HelperService,
+            private router: Router
+
+            ) { }
 
   ngOnInit() {
   }
 
   async register(){
+    console.log(this.datos);
+    const loader = await this.helperService.showLoading("Cargando...");
     const res = await this.auth.register(this.datos.email, this.datos.password).catch(err => {
-      /* this.helperService.showAlert(err.message, "Error"); */
       console.log("Error al registrar usuario");
+      this.helperService.showAlert(err.message, "Error");
+    })
 
-    });
+    await loader.dismiss();
+    if(res){
+      this.helperService.showAlert("Usuario registrado", "Exito");
+      this.router.navigateByUrl('/login');
+    }
   }
 
 }
