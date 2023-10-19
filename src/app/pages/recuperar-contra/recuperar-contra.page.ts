@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { HelperService } from '../../services/helper.service'; // Ajusta la ruta correcta
+import { HelperService } from '../../services/helper.service';
 import { Router } from '@angular/router';
+import { AngularFireAuth } from '@angular/fire/compat/auth'; 
 
 @Component({
   selector: 'app-recuperar-contra',
@@ -8,24 +9,31 @@ import { Router } from '@angular/router';
   styleUrls: ['./recuperar-contra.page.scss'],
 })
 export class RecuperarContraPage implements OnInit {
-  email: string = ''; 
+  email: string = '';
 
-  constructor(private router: Router, private helperService: HelperService) { }
+  constructor(
+    private router: Router,
+    private helperService: HelperService,
+    private afAuth: AngularFireAuth 
+  ) { }
 
   ngOnInit() { }
 
-
-  enviarCorreo() {
-
-    const emailvalidar= /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  async enviarCorreo() {
+    const emailValidar = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
     if (this.email.trim() === '') {
       this.helperService.showAlert('Por favor, ingrese su correo.', 'Error');
-    } else if (!emailvalidar.test(this.email)) {
+    } else if (!emailValidar.test(this.email)) {
       this.helperService.showAlert('Por favor, ingrese un correo electrónico válido.', 'Error');
     } else {
-      this.helperService.showAlert('Por favor, revise su correo.', 'Enviado!');
+      try {
+        await this.afAuth.sendPasswordResetEmail(this.email);
+        this.helperService.showAlert('Se ha enviado un correo para restablecer la contraseña.', 'Enviado!');
+      } catch (error) {
+        console.error('Error al enviar el correo de restablecimiento:', error);
+        this.helperService.showAlert('Ocurrió un error al enviar el correo.', 'Error');
+      }
     }
   }
-
 }
