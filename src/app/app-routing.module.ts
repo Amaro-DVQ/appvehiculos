@@ -38,7 +38,11 @@ const routes: Routes = [
   {
     path: 'confirmar-viaje',
     loadChildren: () => import('./pages/confirmar-viaje/confirmar-viaje.module').then( m => m.ConfirmarViajePageModule)
+  },  {
+    path: 'registro',
+    loadChildren: () => import('./pages/registro/registro.module').then( m => m.RegistroPageModule)
   },
+
 
 ];
 

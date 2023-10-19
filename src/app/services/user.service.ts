@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Auth } from '@angular/fire/auth';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { UserI } from '../models/models';
 
 
 @Injectable({
@@ -19,7 +20,7 @@ export class UserService {
   }
 
   logout() {
-    return this.authFirebase.signOut();
+    this.authFirebase.signOut();
   }
 
   resetPassword(email: string) {

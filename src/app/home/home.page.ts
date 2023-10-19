@@ -22,7 +22,7 @@ export class HomePage {
   }
 
   cargarRegistro() {
-    this.router.navigateByUrl('/register');
+    this.router.navigateByUrl('register');
     this.playAnimation('.img');
     this.playAnimation('.texto');
   }

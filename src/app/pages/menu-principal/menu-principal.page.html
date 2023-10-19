@@ -11,8 +11,8 @@
         <ion-icon style="padding-right: 10px; color: #FBBB34;" name="person-circle-outline"></ion-icon>
         <h3>Perfil</h3>
       </ion-item>
-      <ion-item> <!-- falta el click de la función -->
-        <ion-icon style="padding-right: 10px; color: #FBBB34;" name="signout-outline"></ion-icon>
+      <ion-item detail="true" (click)="logOut()">
+        <ion-icon style="padding-right: 10px; color: #FBBB34;" name="log-out-outline"></ion-icon>
         <h3>Cerrar sesión</h3>
       </ion-item>
     </ion-list>
@@ -25,9 +25,6 @@
   <ion-header>
     <ion-toolbar>
       <ion-title style="background-color: #1f1f1f ; color:white;">Bienvenido a KyA</ion-title>
-      <ion-buttons slot="start">
-        <ion-back-button text="Atrás" default-href="/"></ion-back-button>
-      </ion-buttons>
       <ion-buttons slot="end">
         <ion-menu-button></ion-menu-button>
       </ion-buttons>
