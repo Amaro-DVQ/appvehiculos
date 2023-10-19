@@ -13,12 +13,23 @@ import { UserService } from 'src/app/services/user.service';
 export class MenuPrincipalPage implements OnInit {
   menuArray: Menu[] = [];
   loading: boolean = false;
+  login: boolean = false;
 
   constructor(private router: Router, private menuCtrl:MenuController,
     private animationCtrl:AnimationController,
     private auth:UserService,
     private helper: HelperService
-    ) { }
+    ) { this.auth.stateUser().subscribe(res => {
+      if(res){
+        console.log("está logeado");
+        this.login = true;
+
+      }else{
+        console.log("no está logeado");
+        this.login = false;
+      }
+
+     })}
 
   ngOnInit() {
     this.cargarMenu();
@@ -83,8 +94,12 @@ export class MenuPrincipalPage implements OnInit {
 
   logOut(){
     this.auth.logout();
-    this.helper.showAlert("Sesión cerrada","Cerrar Sesión");
-    this.router.navigateByUrl("/home");
+    this.helper.showConfirm("¿Desea cerrar sesión?","Cerrar sesión","Cancelar").then(res =>{
+      if(res){
+        this.router.navigateByUrl("/login");
+        this.helper.presentToast("Sesión cerrada correctamente");
+      }
+    })
   }
 
 

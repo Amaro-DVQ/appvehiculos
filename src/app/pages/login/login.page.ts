@@ -31,7 +31,7 @@ export class LoginPage implements OnInit {
     });
 
     if (res) {
-      console.log("Login exitoso");
+      this.helperService.presentToast("Login exitoso");
       this.router.navigateByUrl('/menu-principal')
     }
 
@@ -56,6 +56,6 @@ export class LoginPage implements OnInit {
   }
 
   registrar(){
-    this.router.navigateByUrl('/register')
+    this.router.navigateByUrl('/registro')
   }
 }
