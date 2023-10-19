@@ -27,7 +27,6 @@ export class HelperService {
           buttons:
           [
             {
-              //boton confirmar
               text:btn_confirmar,
               handler:() =>{
                 resolve(true);
