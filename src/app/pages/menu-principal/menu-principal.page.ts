@@ -102,5 +102,9 @@ export class MenuPrincipalPage implements OnInit {
     })
   }
 
+  perfil(){
+    this.router.navigateByUrl('perfil');
+  }
+
 
 }
