@@ -93,9 +93,9 @@ export class MenuPrincipalPage implements OnInit {
   }
 
   logOut(){
-    this.auth.logout();
     this.helper.showConfirm("¿Desea cerrar sesión?","Cerrar sesión","Cancelar").then(res =>{
       if(res){
+        this.auth.logout();
         this.router.navigateByUrl("/login");
         this.helper.presentToast("Sesión cerrada correctamente");
       }
