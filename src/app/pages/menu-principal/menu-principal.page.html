@@ -12,7 +12,7 @@
         <h3>Perfil</h3>
       </ion-item>
 
-    <ion-menu-toggle>
+    <ion-menu-toggle *ngIf="login === true">
       <ion-item detail="true" (click)="logOut()">
         <ion-icon style="padding-right: 10px; color: #FBBB34;" name="log-out-outline"></ion-icon>
         <h3>Cerrar sesión</h3>
