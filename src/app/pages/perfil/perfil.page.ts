@@ -11,25 +11,25 @@ export class PerfilPage implements OnInit {
 
   userPass: any;
   userEmail: any;
-  usuario:any;
+  usuario: any;
 
   constructor(private storage:StorageService, private auth:AngularFireAuth) { }
 
   ngOnInit() {
-    /* this.cargarInformacionUsuario(); */
     this.loadUserInfo();
+    this.cargarInformacionUsuario();
   }
 
 
-  /* async cargarInformacionUsuario(){
-    console.log("property", this.storage.userCorreo);
-    var userEmail =await this.auth.currentUser;
-    console.log("11111111111",userEmail?.email);
+  async cargarInformacionUsuario(){
+    //console.log("property", this.storage.userCorreo);
+    //var userEmail =await this.auth.currentUser;
+    //console.log("11111111111",userEmail?.email);
 
-    this.usuario = (await this.storage.obtenerUsuario()).filter(e => e.correo == userEmail?.email);
-    console.log("USUARIO FILTRADO",this.usuario);
+    this.usuario = (await this.storage.obtenerUsuario()).filter((e: { correo: any; }) => e.correo == this.userEmail);
+    //console.log("USUARIO FILTRADO",this.usuario);
 
-  } */
+  }
 
   loadUserInfo() {
     this.auth.authState.subscribe(user => {
