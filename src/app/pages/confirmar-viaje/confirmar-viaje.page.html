@@ -3,53 +3,48 @@
     <ion-buttons slot="start">
       <ion-back-button text="Atrás" default-href="/"></ion-back-button>
     </ion-buttons>
-    <ion-title >Confirmar Viaje</ion-title>
+    <ion-title>Confirmar Viaje</ion-title>
   </ion-toolbar>
 </ion-header>
 
-
 <ion-content [fullscreen]="true" class="card-papa">
-
-
   <ion-card class="card-hijo">
-    <div class="ion-container">
-      <ion-img class="img" src="https://i.postimg.cc/RZC8fDnD/auto-dorado.png"
-        alt="The Wisconsin State Capitol building in Madison, WI at night"></ion-img>
-    </div>
+    
+    <ion-card-header color="light">
+      <p>Registrado por: {{ vehiculo.correoUsuario }}</p>
+      <p>Modelo del Vehiculo: {{ vehiculo.marcaVehiculo }}</p>
+      <p>Placa del Vehiculo: {{ vehiculo.patenteVehiculo }}</p>
+      <p>Costo del Viaje: {{ vehiculo.costoViaje }}</p>
+      <p>Cantidad de Personas: {{ vehiculo.cantidadPersonas }}</p>
+      <p>Destino: {{ vehiculo.destino }}</p>
+    </ion-card-header>
+    <br>
+    <ion-segment [(ngModel)]="metodoPago" color="primary">
+      <ion-segment-button value="tarjeta">
+        Tarjeta
+      </ion-segment-button>
+      <ion-segment-button value="efectivo">
+        Efectivo
+      </ion-segment-button>
+    </ion-segment>
 
+    <ion-item color="light">
+      <ion-label>Número de Tarjeta</ion-label>
+      <ion-input [(ngModel)]="vehiculo.numeroTarjeta" placeholder="Número de Tarjeta"
+        [disabled]="!habilitarCampos()"></ion-input>
+    </ion-item>
+    <ion-item color="light">
+      <ion-label>Fecha de Expiración</ion-label>
+      <ion-input [(ngModel)]="vehiculo.fechaExpiracion" placeholder="Fecha de Expiración"
+        [disabled]="!habilitarCampos()"></ion-input>
+    </ion-item>
+    <ion-item color="light">
+      <ion-label>Código de Seguridad</ion-label>
+      <ion-input [(ngModel)]="vehiculo.codigoSeguridad" placeholder="Código de Seguridad"
+        [disabled]="!habilitarCampos()"></ion-input>
+    </ion-item>
 
+    <ion-button (click)="confirmarViaje()" [disabled]="!vehiculo">Confirmar Viaje</ion-button>
 
-          <ion-input style="color: white;" readonly  label="Origen: San joaquin" type="text" ></ion-input>
-
-          <ion-input style="color: white;" readonly  label="Destino: Metro Macul" type="text" ></ion-input>
-
-          <ion-input style="color: white;" readonly  label="Monto Final: 1000" type="text" ></ion-input>
-
-
-        <ion-item>
-          <form expand="block" action="#" >
-            <label for="lang" style="margin-right: 20px;">Metodo de pago</label>
-            <select name="metodos-pagos" id="lang">
-              <option value="debito">Tarjeta de debito</option>
-              <option value="credito">Tarjeta de credito</option>
-              <option value="paypal">Paypal</option>
-              <option value="efectivo">Efectivo</option>
-            </select>
-          </form>
-        </ion-item>
-        <ion-item>
-          <ion-input  label="Numero de tarjeta" type="text" label-placement="floating"
-            placeholder="Numero de tarjeta"> </ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-input label="Fecha" type="text" label-placement="floating" placeholder="Ingrese los datos"> </ion-input>
-          <ion-input label="CVV" type="text" label-placement="floating" placeholder="CVV"> </ion-input>
-        </ion-item>
-
-
-
-
-    <ion-button class="botones" expand="block" fill="outline" routerLink="/confirmar-viaje">Solicitar Auto</ion-button>
-    <!-- <ion-button class="botones" expand="block" fill="outline" routerLink="#">Cancelar</ion-button> -->
-    </ion-card>
+  </ion-card>
 </ion-content>

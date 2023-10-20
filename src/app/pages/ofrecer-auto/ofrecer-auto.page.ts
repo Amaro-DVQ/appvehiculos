@@ -16,6 +16,7 @@ export class OfrecerAutoPage implements OnInit {
   costoViaje: number | undefined;
   patenteVehiculo: string = '';
   marcaVehiculo: string = '';
+  cantidadPersonas: number | undefined;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -39,7 +40,7 @@ export class OfrecerAutoPage implements OnInit {
   }
 
   async guardarDatosVehiculo() {
-    if (!this.destino || !this.costoViaje || !this.patenteVehiculo || !this.marcaVehiculo) {
+    if (!this.destino || !this.costoViaje || !this.patenteVehiculo || !this.marcaVehiculo || !this.cantidadPersonas) {
       this.helper.showAlert('Error', 'Todos los campos son obligatorios');
       return;
     }
@@ -50,16 +51,13 @@ export class OfrecerAutoPage implements OnInit {
       costoViaje: this.costoViaje,
       patenteVehiculo: this.patenteVehiculo,
       marcaVehiculo: this.marcaVehiculo,
+      cantidadPersonas: this.cantidadPersonas,
     };
 
     await this.storageService.agregarVehiculo(vehiculo);
 
-
     await this.helper.showAlert('Éxito', 'Vehículo agregado exitosamente');
-
 
     this.router.navigate(['/menu-principal']);
   }
-
-
 }

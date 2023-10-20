@@ -3,28 +3,23 @@
     <ion-buttons slot="start">
       <ion-back-button text="Atrás" default-href="/"></ion-back-button>
     </ion-buttons>
-    <ion-title style="background-color: #1f1f1f ; color:white;">Solicitar Auto</ion-title>
+    <ion-title style="background-color: #1f1f1f; color:white;">Solicitar Auto</ion-title>
   </ion-toolbar>
 </ion-header>
 
-
-<ion-content [fullscreen]="true" class="card-papa">
-    <ion-card class="card-hijo">
-        <ion-item>
-          <ion-input label="Origen:" type="text" label-placement="floating" placeholder="Metro Macúl"></ion-input>
-        </ion-item>
-    
-        <ion-item>
-          <ion-input label="Destino:" type="text" label-placement="floating" placeholder="Metro San Joaquín"></ion-input>
-        </ion-item>
-  
-        <ion-item>
-          <ion-input label="Ingresa el costo del viaje:" type="number" label-placement="floating" placeholder="$1.000"></ion-input>
-        </ion-item>
-    
-
-    <ion-button class="botones" expand="block" fill="outline" routerLink="/confirmar-viaje">Solicitar Auto</ion-button>
-
-    </ion-card>
-    
+<ion-content [fullscreen]="true">
+  <ion-card *ngFor="let vehiculo of vehiculos" class="card-hijo">
+    <ion-card-header>
+      <p>Registrado por: {{ vehiculo.correoUsuario }}</p>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Destino: {{ vehiculo.destino }}</p>
+      <p>Costo del Viaje: {{ vehiculo.costoViaje }}</p>
+      <p>Marca del Vehiculo: {{ vehiculo.marcaVehiculo }}</p>
+      <p>Placa del Vehiculo: {{ vehiculo.patenteVehiculo }}</p>
+      <p>Cantidad de Personas: {{ vehiculo.cantidadPersonas }}</p>
+      <br>
+      <ion-button (click)="seleccionarViaje(vehiculo)">Seleccionar Viaje</ion-button>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

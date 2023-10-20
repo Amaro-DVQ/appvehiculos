@@ -48,3 +48,34 @@ ion-item {
     margin-bottom: 10px;
 
 }
+
+
+ion-content {
+    background-color: #1f1f1f;
+    color: white;
+
+}
+
+.card-hijo {
+    border: 1px solid white;
+    margin-bottom: 10px;
+    background: #01162c;
+
+}
+
+.card-hijo ion-card-header {
+    color: white;
+
+}
+
+.card-hijo ion-card-content {
+    color: white;
+
+}
+ ion-button {
+     width: 100%;
+     margin-bottom: 10px;
+     --background: #FBBB34;
+     --color: white;
+     font-weight: bold;
+ }

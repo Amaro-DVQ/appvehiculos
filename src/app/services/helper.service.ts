@@ -65,5 +65,6 @@ export class HelperService {
   async dismissLoading() {
     await this.loaderController.dismiss();
   }
+  
 
 }

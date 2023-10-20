@@ -13,6 +13,11 @@
       <ion-input label="Correo de Usuario" type="text" label-placement="stacked" placeholder="{{ userEmail }}"
         readonly></ion-input>
     </ion-item>
+    
+      <ion-item>
+        <ion-input [(ngModel)]="cantidadPersonas" label="Cantidad de Personas:" type="number" label-placement="floating"
+          placeholder="Número de personas"></ion-input>
+      </ion-item>
 
     <ion-item>
       <ion-input [(ngModel)]="destino" label="Destino:" type="text" label-placement="floating"
@@ -33,6 +38,7 @@
       <ion-input [(ngModel)]="marcaVehiculo" label="Marca del Vehículo:" type="text" label-placement="floating"
         placeholder="Toyota"></ion-input>
     </ion-item>
+
 
 
     <ion-button class="botones" expand="block" fill="outline" (click)="guardarDatosVehiculo()">Ofrecer Viaje</ion-button>
