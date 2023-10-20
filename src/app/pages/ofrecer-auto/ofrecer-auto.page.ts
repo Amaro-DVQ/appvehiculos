@@ -1,6 +1,8 @@
-  import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { ActivatedRoute, Router } from '@angular/router';
 import { HelperService } from 'src/app/services/helper.service';
+import { StorageService } from 'src/app/services/storage.service';
 
 @Component({
   selector: 'app-ofrecer-auto',
@@ -8,15 +10,56 @@ import { HelperService } from 'src/app/services/helper.service';
   styleUrls: ['./ofrecer-auto.page.scss'],
 })
 export class OfrecerAutoPage implements OnInit {
-
   parametronumeroDos: number | undefined;
-  
-  constructor(private activatedRoute: ActivatedRoute,
-    private helper: HelperService) { }
+  userEmail: any;
+  destino: string = '';
+  costoViaje: number | undefined;
+  patenteVehiculo: string = '';
+  marcaVehiculo: string = '';
+
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private helper: HelperService,
+    private auth: AngularFireAuth,
+    private storageService: StorageService,
+    private router: Router,
+  ) { }
 
   ngOnInit() {
     this.parametronumeroDos = this.activatedRoute.snapshot.params['num'];
-    console.log("parametro: ", this.parametronumeroDos);
+    this.loadUserInfo();
   }
+
+  loadUserInfo() {
+    this.auth.authState.subscribe((user) => {
+      if (user) {
+        this.userEmail = user.email;
+      }
+    });
+  }
+
+  async guardarDatosVehiculo() {
+    if (!this.destino || !this.costoViaje || !this.patenteVehiculo || !this.marcaVehiculo) {
+      this.helper.showAlert('Error', 'Todos los campos son obligatorios');
+      return;
+    }
+
+    const vehiculo = {
+      correoUsuario: this.userEmail,
+      destino: this.destino,
+      costoViaje: this.costoViaje,
+      patenteVehiculo: this.patenteVehiculo,
+      marcaVehiculo: this.marcaVehiculo,
+    };
+
+    await this.storageService.agregarVehiculo(vehiculo);
+
+
+    await this.helper.showAlert('Éxito', 'Vehículo agregado exitosamente');
+
+
+    this.router.navigate(['/menu-principal']);
+  }
+
 
 }

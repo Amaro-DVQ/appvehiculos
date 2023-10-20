@@ -9,32 +9,21 @@ const storageVehiculo = "vehiculoData";
 })
 export class StorageService {
   public userCorreo = "";
-  constructor() { }
 
+  constructor() { }
 
   async getItem(llave: string): Promise<string | null> {
     const obj = await Preferences.get({ key: llave });
     return obj.value;
   }
 
-
   async setItem(llave: string, valor: string) {
     await Preferences.set({ key: llave, value: valor });
   }
 
-
   async obtenerUsuario() {
     const storageData = await this.getItem(storageUsuario);
-    if (storageData == null) {
-      return [];
-    }
-
-    const data: any[] = JSON.parse(storageData);
-    if (data) {
-      return data;
-    } else {
-      return [];
-    }
+    return storageData ? JSON.parse(storageData) : [];
   }
 
   async agregarUsuario(user: any[]) {
@@ -49,5 +38,14 @@ export class StorageService {
   }
 
 
+  async obtenerVehiculos() {
+    const storageData = await this.getItem(storageVehiculo);
+    return storageData ? JSON.parse(storageData) : [];
+  }
 
+  async agregarVehiculo(vehiculo: any) {
+    const vehiculos = await this.obtenerVehiculos();
+    vehiculos.push(vehiculo);
+    this.setItem(storageVehiculo, JSON.stringify(vehiculos));
+  }
 }

@@ -3,30 +3,40 @@
     <ion-buttons slot="start">
       <ion-back-button text="Atrás" default-href="/"></ion-back-button>
     </ion-buttons>
-    <ion-title style="background-color: #1f1f1f ; color:white;">Ofrece tu Auto</ion-title>
+    <ion-title style="background-color: #1f1f1f; color:white;">Ofrece tu Auto</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true" class="card-papa">
-    <ion-card class="card-hijo">
-      <ion-item>
-        <ion-input label="Nombre del conductor:" type="text" label-placement="floating" placeholder="Ingresa tu nombre"></ion-input>
-      </ion-item>
-  
-      <ion-item>
-        <ion-input label="Destino:" type="text" label-placement="floating" placeholder="Metro San Joaquín"></ion-input>
-      </ion-item>
+  <ion-card class="card-hijo">
+    <ion-item>
+      <ion-input label="Correo de Usuario" type="text" label-placement="stacked" placeholder="{{ userEmail }}"
+        readonly></ion-input>
+    </ion-item>
 
-      <ion-item>
-        <ion-input label="Ingresa el costo del viaje:" type="number" label-placement="floating" placeholder="$1.000"></ion-input>
-      </ion-item>
-  
-      <ion-item>
-        <ion-input label="Patente del Vehículo:" type="text" label-placement="floating" placeholder="LJ-Z0-63"></ion-input>
-      </ion-item>
+    <ion-item>
+      <ion-input [(ngModel)]="destino" label="Destino:" type="text" label-placement="floating"
+        placeholder="Metro San Joaquín"></ion-input>
+    </ion-item>
+    
+    <ion-item>
+      <ion-input [(ngModel)]="costoViaje" label="Ingresa el costo del viaje:" type="number" label-placement="floating"
+        placeholder="$1.000"></ion-input>
+    </ion-item>
+    
+    <ion-item>
+      <ion-input [(ngModel)]="patenteVehiculo" label="Patente del Vehículo:" type="text" label-placement="floating"
+        placeholder="LJ-Z0-63"></ion-input>
+    </ion-item>
+    
+    <ion-item>
+      <ion-input [(ngModel)]="marcaVehiculo" label="Marca del Vehículo:" type="text" label-placement="floating"
+        placeholder="Toyota"></ion-input>
+    </ion-item>
 
 
-    <ion-button class="botones" expand="block" fill="outline" routerLink="#">Ofrecer Viaje</ion-button>
+    <ion-button class="botones" expand="block" fill="outline" (click)="guardarDatosVehiculo()">Ofrecer Viaje</ion-button>
 
-    </ion-card>
-  </ion-content>
+
+  </ion-card>
+</ion-content>
