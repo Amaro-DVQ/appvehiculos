@@ -21,11 +21,9 @@ export class MenuPrincipalPage implements OnInit {
     private helper: HelperService
     ) { this.auth.stateUser().subscribe(res => {
       if(res){
-        console.log("está logeado");
         this.login = true;
 
       }else{
-        console.log("no está logeado");
         this.login = false;
       }
 

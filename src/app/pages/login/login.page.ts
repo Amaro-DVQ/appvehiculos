@@ -44,7 +44,7 @@ export class LoginPage implements OnInit {
       return;
     }
 
-    console.log("Credenciales -> " + this.credenciales.email + " " + this.credenciales.password);
+
     const res = await this.userService.login(this.credenciales.email, this.credenciales.password).catch(err => {
       this.helperService.showAlert(err.message, "Error");
     });
@@ -57,7 +57,7 @@ export class LoginPage implements OnInit {
     try {
       this.storage.userCorreo = this.credenciales.email;
       const req = await this.auth.signInWithEmailAndPassword(this.credenciales.email,this.credenciales.password);
-      console.log("TOKEN",await req.user?.getIdToken());
+
       await this.router.navigateByUrl('menu-principal');
     } catch (error) {
       await loader.dismiss();

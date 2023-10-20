@@ -29,10 +29,8 @@ export class RegistroPage implements OnInit {
   }
 
   async register(){
-    console.log(this.datos);
     const loader = await this.helperService.showLoading("Cargando...");
     const res = await this.auth.register(this.datos.email, this.datos.password).catch(err => {
-      console.log("Error al registrar usuario");
       this.helperService.showAlert(err.message, "Error");
     })
 

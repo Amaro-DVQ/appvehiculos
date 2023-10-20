@@ -40,7 +40,6 @@ export class StorageService {
 
   async obtenerVehiculos() {
     const storageData = await this.getItem(storageVehiculo);
-    console.log('Vehículos recuperados:', storageData);
     return storageData ? JSON.parse(storageData) : [];
   }
   async agregarVehiculo(vehiculo: any) {
