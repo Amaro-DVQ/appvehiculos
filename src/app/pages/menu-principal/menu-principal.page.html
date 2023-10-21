@@ -6,15 +6,15 @@
     </ion-toolbar>
   </ion-header>
   <ion-content class="ion-padding">
-    <ion-list>
-      <ion-item (click)="perfil()">
+    <ion-list style="background-color: #01162c ; color:white;">
+      <ion-item (click)="perfil()" style="background-color: #01162c ; color:white;">
         <ion-icon style="padding-right: 10px; color: #FBBB34;" name="person-circle-outline"></ion-icon>
         <h3>Perfil</h3>
       </ion-item>
 
     <ion-menu-toggle *ngIf="login === true">
-      <ion-item detail="true" (click)="logOut()">
-        <ion-icon style="padding-right: 10px; color: #FBBB34;" name="log-out-outline"></ion-icon>
+      <ion-item detail="true" (click)="logOut()" style="background-color: #01162c ; color:white;">
+        <ion-icon style="padding-right: 10px; color: #FBBB34; " name="log-out-outline"></ion-icon>
         <h3>Cerrar sesión</h3>
       </ion-item>
     </ion-menu-toggle>

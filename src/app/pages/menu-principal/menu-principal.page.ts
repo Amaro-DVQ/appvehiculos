@@ -79,6 +79,7 @@ export class MenuPrincipalPage implements OnInit {
         'flex': '1',
         'border': 'solid',
         'border-radius': '30px',
+        'background': '#1f1f1f',
         'font-size': '35px',
         'color': 'white',
         'font-weight': 'bold'
