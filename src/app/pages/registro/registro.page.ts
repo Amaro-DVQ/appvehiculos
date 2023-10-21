@@ -2,7 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserI } from 'src/app/models/models';
 import { HelperService } from 'src/app/services/helper.service';
+import { LocationService } from 'src/app/services/location.service';
 import { UserService } from 'src/app/services/user.service';
+import { Comuna } from 'src/app/models/comuna';
+import { Region } from 'src/app/models/region';
 
 @Component({
   selector: 'app-registro',
@@ -19,9 +22,15 @@ export class RegistroPage implements OnInit {
     confirmarPass: ""
   }
 
+  regiones:Region[]=[];
+  comunas:Comuna[]=[];
+  regionSeleccionado:number = 0;
+  comunaSeleccionada:number = 0;
+
   constructor(private auth:UserService,
             private helperService: HelperService,
-            private router: Router
+            private router: Router,
+            private locationService:LocationService
 
             ) { }
 
@@ -39,6 +48,17 @@ export class RegistroPage implements OnInit {
       this.helperService.showAlert("Usuario registrado", "Exito");
       this.router.navigateByUrl('/login');
     }
+  }
+
+  async cargarRegion(){
+    const req = await this.locationService.getRegion();
+    this.regiones = req.data;
+    console.log("REGION",this.regiones);
+  }
+
+  async cargarComuna(){
+    const req = await this.locationService.getComuna(this.regionSeleccionado);
+    this.comunas = req.data;
   }
 
 }

@@ -41,7 +41,7 @@ export class OfrecerAutoPage implements OnInit {
 
   async guardarDatosVehiculo() {
     if (!this.destino || !this.costoViaje || !this.patenteVehiculo || !this.marcaVehiculo || !this.cantidadPersonas) {
-      this.helper.showAlert('Error', 'Todos los campos son obligatorios');
+      this.helper.showAlert('Todos los campos son obligatorios','Error');
       return;
     }
 

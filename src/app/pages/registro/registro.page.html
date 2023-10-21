@@ -24,6 +24,22 @@
           <ion-input type="email" [(ngModel)]="datos.email" label="Correo" labelPlacement="floating" fill="outline" placeholder="Ingrese su correo"></ion-input>
         </ion-item>
 
+        <ion-list>
+          <ion-item>
+            <ion-select (ionChange)="cargarComuna()" placeholder="Seleccione region" [(ngModel)]="regionSeleccionado">
+              <ion-select-option [value]="i.id" *ngFor="let i of regiones">{{i.nombre}}</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-list>
+
+        <ion-list>
+          <ion-item>
+            <ion-select placeholder="Seleccione comuna" [(ngModel)]="comunaSeleccionada">
+              <ion-select-option [value]="i.id" *ngFor="let i of comunas">{{i.nombre}}</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-list>
+
         <ion-item>
           <ion-input type="password" [(ngModel)]="datos.password" label="Contraseña" labelPlacement="floating" fill="outline"  placeholder="Ingrese su contraseña"></ion-input>
         </ion-item>
