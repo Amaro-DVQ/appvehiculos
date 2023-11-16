@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { HelperService } from 'src/app/services/helper.service';
 import { StorageService } from 'src/app/services/storage.service';
 import { UserService } from 'src/app/services/user.service';
+import { Network } from '@capacitor/network';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -16,8 +18,6 @@ export class LoginPage implements OnInit {
     password: ""
   }
 
-
-
   constructor(private router:Router,
               private helperService:HelperService,
               private userService:UserService,
@@ -26,8 +26,6 @@ export class LoginPage implements OnInit {
 
   ngOnInit() {
   }
-
-
 
   async login() {
 
@@ -62,6 +60,19 @@ export class LoginPage implements OnInit {
     } catch (error) {
       await loader.dismiss();
     }
+
+    Network.addListener('networkStatusChange', status => {
+      console.log('Network status changed', status);
+    });
+
+    const logCurrentNetworkStatus = async () => {
+      const status = await Network.getStatus();
+
+      console.log('Network status:', status);
+    };
+
+    logCurrentNetworkStatus();
+
 
     await loader.dismiss();
   }
