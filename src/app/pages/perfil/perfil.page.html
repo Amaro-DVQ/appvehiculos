@@ -7,12 +7,39 @@
   </ion-toolbar>
 </ion-header>
 
-
-<ion-content>
+<ion-content *ngIf="usuario">
   <ion-card>
     <ion-card-content>
       <ion-card-title>Correo</ion-card-title>
       <ion-card-subtitle>{{ userEmail }}</ion-card-subtitle>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf="usuario.nombre">
+    <ion-card-content>
+      <ion-card-title>Nombre</ion-card-title>
+      <ion-card-subtitle>{{ usuario.nombre }}</ion-card-subtitle>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf="usuario.apellido">
+    <ion-card-content>
+      <ion-card-title>Apellido</ion-card-title>
+      <ion-card-subtitle>{{ usuario.apellido }}</ion-card-subtitle>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf="usuario.comuna">
+    <ion-card-content>
+      <ion-card-title>Comuna</ion-card-title>
+      <ion-card-subtitle>{{ usuario.comuna }}</ion-card-subtitle>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf="usuario.region">
+    <ion-card-content>
+      <ion-card-title>Región</ion-card-title>
+      <ion-card-subtitle>{{ usuario.region }}</ion-card-subtitle>
     </ion-card-content>
   </ion-card>
 </ion-content>

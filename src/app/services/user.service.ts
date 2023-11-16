@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Auth } from '@angular/fire/auth';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { UserI } from '../models/models';
+import { StorageService } from './storage.service';
 
 
 @Injectable({
@@ -9,13 +8,13 @@ import { UserI } from '../models/models';
 })
 export class UserService {
 
-  constructor(private authFirebase: AngularFireAuth) { }
+  constructor(private authFirebase: AngularFireAuth, private storageService: StorageService) { }
 
-  login(email: string, password:string ) {
+  login(email: string, password: string) {
     return this.authFirebase.signInWithEmailAndPassword(email, password);
   }
 
-  register(email: string, password:string ) {
+  register(email: string, password: string) {
     return this.authFirebase.createUserWithEmailAndPassword(email, password);
   }
 
@@ -31,4 +30,12 @@ export class UserService {
     return this.authFirebase.authState;
   }
 
+  getUserInfo() {
+    return this.authFirebase.currentUser;
+  }
+
+  async getUserDataByEmail(email: string) {
+    const users = await this.storageService.obtenerUsuario();
+    return users.find((user: { correo: string; }) => user.correo === email);
+  }
 }

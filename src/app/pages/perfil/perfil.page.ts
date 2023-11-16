@@ -9,35 +9,31 @@ import { StorageService } from 'src/app/services/storage.service';
 })
 export class PerfilPage implements OnInit {
 
-  userPass: any;
   userEmail: any;
   usuario: any;
 
-  constructor(private storage:StorageService, private auth:AngularFireAuth) { }
+  constructor(private storage: StorageService, private auth: AngularFireAuth) { }
 
   ngOnInit() {
     this.loadUserInfo();
-    this.cargarInformacionUsuario();
   }
 
-
-  async cargarInformacionUsuario(){
-    //console.log("property", this.storage.userCorreo);
-    //var userEmail =await this.auth.currentUser;
-    //console.log("11111111111",userEmail?.email);
-
-    this.usuario = (await this.storage.obtenerUsuario()).filter((e: { correo: any; }) => e.correo == this.userEmail);
-    //console.log("USUARIO FILTRADO",this.usuario);
-
-  }
-
-  loadUserInfo() {
-    this.auth.authState.subscribe(user => {
+  async loadUserInfo() {
+    this.auth.authState.subscribe(async user => {
+      console.log("Usuario autenticado:", user);
       if (user) {
-        this.userPass = user.emailVerified;
         this.userEmail = user.email;
+        await this.cargarInformacionUsuario();
       }
     });
   }
 
+  async cargarInformacionUsuario() {
+    try {
+      this.usuario = await this.storage.obtenerUsuarioPorCorreo(this.userEmail);
+      console.log("Información del usuario:", this.usuario);
+    } catch (error) {
+      console.error("Error al cargar la información del usuario:", error);
+    }
+  }
 }

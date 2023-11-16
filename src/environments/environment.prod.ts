@@ -7,5 +7,6 @@ export const environment = {
     storageBucket: "tellevoapp-kya.appspot.com",
     messagingSenderId: "525071796414",
     appId: "1:525071796414:web:045ebf782d4b8699c176ef",
-  }
+  },
+  apiUrl: "https://dev.matiivilla.cl/duoc/location/"
 };

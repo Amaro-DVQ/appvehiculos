@@ -11,8 +11,8 @@ export class HomePage {
   constructor(private router: Router, private animationCtrl: AnimationController) { }
 
   ngAfterViewInit() {
-    this.playAnimation('.img'); // Animación para la imagen
-    this.playAnimation('.texto'); // Animación para el texto
+    this.playAnimation('.img'); 
+    this.playAnimation('.texto'); 
   }
 
   cargarLogin() {

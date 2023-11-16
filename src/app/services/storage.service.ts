@@ -26,30 +26,27 @@ export class StorageService {
     return storageData ? JSON.parse(storageData) : [];
   }
 
-  async agregarUsuario(user: any[]) {
+  async agregarUsuario(user: any) {
     const usuarios = await this.obtenerUsuario();
-    for (const i of usuarios) {
-      if (i) {
-        user.push(i);
-      }
-    }
-
-    this.setItem(storageUsuario, JSON.stringify(user));
+    usuarios.push(user);
+    this.setItem(storageUsuario, JSON.stringify(usuarios));
   }
 
+  async obtenerUsuarioPorCorreo(correo: string) {
+    const usuarios = await this.obtenerUsuario();
+
+    return usuarios.find((e: { email: any; }) => e.email == correo);
+  }
 
   async obtenerVehiculos() {
     const storageData = await this.getItem(storageVehiculo);
     return storageData ? JSON.parse(storageData) : [];
   }
+
   async agregarVehiculo(vehiculo: any) {
     const vehiculos = await this.obtenerVehiculos();
-
     vehiculo.correoUsuario = this.userCorreo;
-
     vehiculos.push(vehiculo);
     this.setItem(storageVehiculo, JSON.stringify(vehiculos));
   }
-
-  
 }
