@@ -13,11 +13,18 @@
       <ion-input label="Correo de Usuario" type="text" label-placement="stacked" placeholder="{{ userEmail }}"
         readonly></ion-input>
     </ion-item>
+
+    <ion-item>
+      <ion-input [(ngModel)]="cantidadPersonas" label="Cantidad de Personas:" type="number" label-placement="floating"
+        placeholder="Número de personas"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input [(ngModel)]="origen" label="Origen:" type="text" label-placement="floating"
+        placeholder="Metro Tobalaba"></ion-input>
+    </ion-item>
+
     
-      <ion-item>
-        <ion-input [(ngModel)]="cantidadPersonas" label="Cantidad de Personas:" type="number" label-placement="floating"
-          placeholder="Número de personas"></ion-input>
-      </ion-item>
 
     <ion-item>
       <ion-input [(ngModel)]="destino" label="Destino:" type="text" label-placement="floating"

@@ -12,6 +12,7 @@ import { StorageService } from 'src/app/services/storage.service';
 export class OfrecerAutoPage implements OnInit {
   parametronumeroDos: number | undefined;
   userEmail: any;
+  origen: string = '';
   destino: string = '';
   costoViaje: number | undefined;
   patenteVehiculo: string = '';
@@ -40,13 +41,14 @@ export class OfrecerAutoPage implements OnInit {
   }
 
   async guardarDatosVehiculo() {
-    if (!this.destino || !this.costoViaje || !this.patenteVehiculo || !this.marcaVehiculo || !this.cantidadPersonas) {
+    if (!this.origen || !this.destino || !this.costoViaje || !this.patenteVehiculo || !this.marcaVehiculo || !this.cantidadPersonas) {
       this.helper.showAlert('Todos los campos son obligatorios','Error');
       return;
     }
 
     const vehiculo = {
       correoUsuario: this.userEmail,
+      origen: this.origen,
       destino: this.destino,
       costoViaje: this.costoViaje,
       patenteVehiculo: this.patenteVehiculo,
