@@ -14,7 +14,7 @@ export class OfrecerAutoPage implements OnInit {
   userEmail: any;
   origen: string = '';
   destino: string = '';
-  costoViaje: number | undefined;
+  costoViaje: string = '';
   patenteVehiculo: string = '';
   marcaVehiculo: string = '';
   cantidadPersonas: number | undefined;
@@ -41,18 +41,43 @@ export class OfrecerAutoPage implements OnInit {
   }
 
   async guardarDatosVehiculo() {
-    if (!this.origen || !this.destino || !this.costoViaje || !this.patenteVehiculo || !this.marcaVehiculo || !this.cantidadPersonas) {
-      this.helper.showAlert('Todos los campos son obligatorios','Error');
+    if (
+      !this.origen ||
+      !this.destino ||
+      !this.costoViaje ||
+      !this.patenteVehiculo ||
+      !this.marcaVehiculo ||
+      !this.cantidadPersonas
+    ) {
+      this.helper.showAlert('Todos los campos son obligatorios', 'Error');
       return;
     }
 
+    const patenteRegex = /^[A-Za-z0-9]+$/;
+    if (!patenteRegex.test(this.patenteVehiculo) || this.patenteVehiculo.length !== 6) {
+      this.helper.showAlert('La patente debe contener exactamente 6 caracteres alfanuméricos', 'Error');
+      return;
+    }
+
+
+    if (this.origen.length === 0 || this.destino.length === 0) {
+      this.helper.showAlert('Los campos Origen y Destino deben tener al menos un carácter', 'Error');
+      return;
+    }
+
+    const formattedPatente = this.formatPatente(this.patenteVehiculo);
+    const formattedCosto = this.formatCosto(this.costoViaje);
+    const formattedMarca = this.formatMarca(this.marcaVehiculo);
+    const formattedOrigen = this.formatOrigenDestino(this.origen);
+    const formattedDestino = this.formatOrigenDestino(this.destino);
+
     const vehiculo = {
       correoUsuario: this.userEmail,
-      origen: this.origen,
-      destino: this.destino,
-      costoViaje: this.costoViaje,
-      patenteVehiculo: this.patenteVehiculo,
-      marcaVehiculo: this.marcaVehiculo,
+      origen: formattedOrigen,
+      destino: formattedDestino,
+      costoViaje: formattedCosto,
+      patenteVehiculo: formattedPatente,
+      marcaVehiculo: formattedMarca,
       cantidadPersonas: this.cantidadPersonas,
     };
 
@@ -61,5 +86,22 @@ export class OfrecerAutoPage implements OnInit {
     await this.helper.showAlert('Éxito', 'Vehículo agregado exitosamente');
 
     this.router.navigate(['/menu-principal']);
+  }
+
+  formatPatente(patente: string): string {
+    return patente.replace(/(.{2})/g, '$1-').slice(0, -1);
+  }
+
+  formatCosto(costo: string): string {
+    const numberCosto = Number(costo);
+    return '$' + numberCosto.toLocaleString();
+  }
+
+  formatMarca(marca: string): string {
+    return marca.charAt(0).toUpperCase() + marca.slice(1).toLowerCase();
+  }
+
+  formatOrigenDestino(texto: string): string {
+    return texto.charAt(0).toUpperCase() + texto.slice(1).toLowerCase();
   }
 }

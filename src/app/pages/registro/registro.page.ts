@@ -33,7 +33,7 @@ export class RegistroPage implements OnInit {
     private helperService: HelperService,
     private router: Router,
     private locationService: LocationService,
-    private storageService: StorageService  
+    private storageService: StorageService
   ) { }
 
   ngOnInit() {
@@ -43,11 +43,45 @@ export class RegistroPage implements OnInit {
 
   async register() {
     const loader = await this.helperService.showLoading("Cargando...");
+
+  
+    if (
+      this.datos.nombre === "" ||
+      this.datos.apellido === "" ||
+      this.datos.email === "" ||
+      this.datos.password === "" ||
+      this.datos.confirmarPass === ""
+    ) {
+      await loader.dismiss();
+      this.helperService.showAlert("Rellene todos los campos", "Error");
+      return;
+    }
+
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(this.datos.email)) {
+      await loader.dismiss();
+      this.helperService.showAlert("Ingrese un correo electrónico válido", "Error");
+      return;
+    }
+
+
+    if (this.datos.password.length < 6) {
+      await loader.dismiss();
+      this.helperService.showAlert("La contraseña debe tener al menos 6 caracteres", "Error");
+      return;
+    }
+
+    if (this.datos.password !== this.datos.confirmarPass) {
+      await loader.dismiss();
+      this.helperService.showAlert("Las contraseñas no coinciden", "Error");
+      return;
+    }
+
     const res = await this.auth.register(this.datos.email, this.datos.password).catch(err => {
       this.helperService.showAlert(err.message, "Error");
     });
 
-    await loader.dismiss();
     if (res) {
       this.storageService.agregarUsuario({
         nombre: this.datos.nombre,
@@ -55,12 +89,13 @@ export class RegistroPage implements OnInit {
         email: this.datos.email,
         region: this.regionSeleccionado,
         comuna: this.comunaSeleccionada,
-       
       });
 
       this.helperService.showAlert("Usuario registrado", "Exito");
       this.router.navigateByUrl('/login');
     }
+
+    await loader.dismiss();
   }
 
   async cargarRegion() {

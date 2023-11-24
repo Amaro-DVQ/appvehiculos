@@ -1,4 +1,4 @@
 export interface Comuna{
-  id:number;
+  id: string;
   nombre:string;
 }
