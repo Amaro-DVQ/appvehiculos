@@ -14,6 +14,7 @@ import { StorageService } from 'src/app/services/storage.service';
   styleUrls: ['./registro.page.scss'],
 })
 export class RegistroPage implements OnInit {
+  
 
   datos: UserI = {
     nombre: "",
@@ -23,6 +24,7 @@ export class RegistroPage implements OnInit {
     confirmarPass: ""
   }
 
+  title = 'Registro';
   regiones: Region[] = [];
   comunas: Comuna[] = [];
   regionSeleccionado: number = 0;

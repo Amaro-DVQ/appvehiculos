@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { HelperService } from 'src/app/services/helper.service';
-import { StorageService } from 'src/app/services/storage.service';
+import { ActivatedRoute } from '@angular/router';
 import { NavController } from '@ionic/angular';
+import { StorageService } from 'src/app/services/storage.service';
 
 @Component({
   selector: 'app-solicitar-auto',
@@ -13,7 +12,6 @@ export class SolicitarAutoPage implements OnInit {
   parametronumeroUno: number | undefined;
   vehiculos: any[] = [];
 
-
   constructor(
     private activatedRoute: ActivatedRoute,
     private storageService: StorageService,
@@ -21,8 +19,10 @@ export class SolicitarAutoPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.parametronumeroUno = this.activatedRoute.snapshot.params['num'];
-    this.loadVehiculos();
+    this.activatedRoute.params.subscribe(params => {
+      this.parametronumeroUno = params['num'];
+      this.loadVehiculos();
+    });
   }
 
   async loadVehiculos() {
@@ -32,5 +32,4 @@ export class SolicitarAutoPage implements OnInit {
   seleccionarViaje(vehiculo: any) {
     this.navCtrl.navigateForward(['/confirmar-viaje', { vehiculo: JSON.stringify(vehiculo) }]);
   }
-} 
-
+}

@@ -11,6 +11,8 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./menu-principal.page.scss'],
 })
 export class MenuPrincipalPage implements OnInit {
+ 
+  mensaje: string = 'Bienvenido KYA';
   menuArray: Menu[] = [];
   loading: boolean = false;
   login: boolean = false;

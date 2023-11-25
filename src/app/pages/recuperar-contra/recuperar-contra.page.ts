@@ -9,6 +9,8 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
   styleUrls: ['./recuperar-contra.page.scss'],
 })
 export class RecuperarContraPage implements OnInit {
+  
+  mensaje: string = 'Correo enviado';
   email: string = '';
 
   constructor(

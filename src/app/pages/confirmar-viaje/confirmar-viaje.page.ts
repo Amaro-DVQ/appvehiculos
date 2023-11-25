@@ -8,6 +8,8 @@ import { HelperService } from 'src/app/services/helper.service';
   styleUrls: ['./confirmar-viaje.page.scss'],
 })
 export class ConfirmarViajePage implements OnInit {
+
+  title = 'Confirmar Viaje';
   vehiculo: any;
   metodoPago: string = 'Efectivo';
 
